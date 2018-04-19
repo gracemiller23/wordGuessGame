@@ -1,3 +1,4 @@
+
 var wins = 0;
 
 alert("Press the 'New Word' button to start a new game!");
@@ -23,7 +24,10 @@ function newWordRound(){
  
 //variable to store guessed letters
 var guessedLetters = [];
-var guesses = randomWord.length + 4; //makes the number of guesses proportionate to word length
+var guesses = randomWord.length + 5; //makes the number of guesses proportionate to word length
+
+//capture the letters that the user has pressed in the letters-guessed id div
+document.getElementById("guesses-remain").textContent = guesses;
 
 //function to take in and analyze user guesses through key presses
 document.onkeyup = function(event) {
@@ -33,9 +37,6 @@ document.onkeyup = function(event) {
     var wordBlanksVisible = blankedWord.join("");//there may be an issue later with using this variable due to
     //scope - does it need to be repeated in this function or not?
 
-    //capture the letters that the user has pressed in the letters-guessed id div
-    document.getElementById("guesses-remain").textContent = guesses;
-          
    //If the user has guesses left, the input is valid, the letter has not been guessed 
    //and the letter is included in the random word.          
     if (guesses > 0 && validKeys.includes(event.key) && randomWord.includes(event.key) && 
@@ -70,9 +71,11 @@ document.onkeyup = function(event) {
     else if (guesses === 0) {
         alert("You are out of time and options. You must eject from the aircraft.");
     }
+    
     };
+
      
-           
+
 
 
 //6. When the user guesses all letters, we need to run a win sequence that plays a sound for winning.
