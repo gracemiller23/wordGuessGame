@@ -7,8 +7,9 @@ alert("Press the 'New Word' button to start a new game!");
 var guessWord = ["falcon", "eagle", "rocket", "target"];
 
 var randomWord = guessWord[Math.floor(Math.random()*guessWord.length)];
-//Creates a way for users to get a word from the array randomly and present 
-//blanks in place of its letters to the user.
+
+//Creates a way for users to get a word from the array randomly and present blanks 
+//in place of its letters to the user.
 //Function for user to start the game by pressing the button
 var blankedWord =[];
 
