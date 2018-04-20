@@ -6,11 +6,18 @@ function newWordRound(){
     var wordBlanksVisible = blankedWord.join("");
     document.getElementById("word-Display").textContent = wordBlanksVisible;
     console.log(randomWord);
+    var guessedLetters = [];
     };
+
+
 
 alert("Press the 'New Word' button to start a new game!");
 
-var guessWord = ["falcon", "eagle", "rocket", "target", ];
+var guessWord = ["falcon", "eagle", "rocket", "target", "raptor", "altitude", "strafing", "warthog", "lightning", 
+"bingo", "eject", "sortie", "blind", "exercise", "brief", "flug", "ipug", "cas", "deployment", "egress",
+"kill", "sead", "hornet", "runway", "weather", "visor", "helmet", "fingertip", "formation",
+"tactical", "airspeed", "sim", "flare", "bank", "tally", "break", "roll", "jink", "afterburner", 
+"dive", "mach", "climb", "supersonic"];
 var randomWord = guessWord[Math.floor(Math.random()*guessWord.length+1)];
 var randomWordArray = randomWord.split("");
 var blankedWord =[];
@@ -85,11 +92,6 @@ else {
     alert("You are out of time and options. You must eject from the aircraft.");
 }
 document.getElementById("letters-guessed").textContent = guessedLetters;
-
-
-
-
-
 
 
 
