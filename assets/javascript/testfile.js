@@ -2,7 +2,7 @@
     var guessedLetters = [];
     var randomWord = "";
     var roundsPlayed = 0;
-    var blankedWord = [];
+    var blankedWord = [""];
     var globalGuesses = 0;
     var missionAcc = 0;
     var missionFail = 0;
@@ -13,14 +13,15 @@
     generateRandomWord();
     eachRound();
 
+
     function generateRandomWord(){
+        blankedWord = [""];
         var guessWord = ["falcon", "eagle", "rocket", "target", "raptor", "altitude", "strafing", "warthog", "lightning", 
             "bingo", "eject", "sortie", "blind", "exercise", "brief", "flug", "ipug", "cas", "deployment", "egress",
             "kill", "sead", "hornet", "runway", "weather", "visor", "helmet", "fingertip", "formation",
             "tactical", "airspeed", "sim", "flare", "bank", "tally", "break", "roll", "jink", "afterburner", 
             "dive", "mach", "climb", "supersonic"];
-            randomWord = guessWord[Math.floor(Math.random()*guessWord.length+1)];
-        var randomWordArray = randomWord.split("");
+        randomWord = guessWord[Math.floor(Math.random()*guessWord.length+1)];
         for (i = 0; i < randomWord.length; i++){
              blankedWord[i]= " _ ";
         };
@@ -119,9 +120,8 @@
 
     function newWordRound(){
         guesses = 0;
-        blankedWord = [];                            
-        randomWord = "";
-        generateRandomWord();
+        blankedWord = [""]; //rewrite                           
+       generateRandomWord();
         eachRound();
         console.log(randomWord);
         
