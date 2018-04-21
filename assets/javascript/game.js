@@ -1,4 +1,5 @@
 
+
 function newWordRound(){
     for (i = 0; i < randomWord.length; i++){
         blankedWord[i]= " _ ";
@@ -29,16 +30,24 @@ var guesses = randomWord.length + 5; //makes the number of guesses proportionate
 //capture the letters that the user has pressed in the letters-guessed id div
 document.getElementById("guesses-remain").textContent = guesses.toString();
 
+
+
+
+
+
+
+
 //function to take in and analyze user guesses through key presses
 document.onkeyup = function(event) {
 
-    var userInput = event.key;
+    var userInput = event.key.toLowerCase();
     var validKeys = "abcdefghijklmnopqrstuvwxyz";
     var wordBlanksVisible = blankedWord.join("");
+    var guessLetInd = guessedLetters.indexOf(userInput);
     
 if (guesses > 0){  
     console.log(guessedLetters);
-    if (guessedLetters.indexOf(userInput) > -1){
+    if (guessLetInd > -1){
         alert("You already used this letter. Choose a different letter.");
     } 
     else{
@@ -47,7 +56,9 @@ if (guesses > 0){
             //and the letter is included in the random word.          
             if (randomWord.includes(userInput)) {
              console.log("it worked"); //remove before turning in ********
-                for (i=0 ; i < randomWord.length ; i++){
+                
+             //moved into replaceBlanks function
+             for (i=0 ; i < randomWord.length ; i++){
                     if(randomWord[i] === userInput){
                         blankedWord[i] = userInput;
                         wordBlanksVisible = blankedWord.join("");
@@ -57,9 +68,11 @@ if (guesses > 0){
                     }
                    
                 }
+
                 guessedLetters.push(" " + userInput);
 
                 if (document.getElementById("word-Display").textContent === randomWord){
+                   //moved to win sequence
                     for (i=0 ; i < randomWord.length ; i++){
                         if(randomWord[i] === userInput){
                             blankedWord[i] = userInput;
@@ -77,6 +90,7 @@ if (guesses > 0){
         // If the user has guesses left, the input is valid, the letter has not been guessed, 
         //but the letter is not included in the random word    
             else {
+                //move to wrong guess
                 guesses--;
                 document.getElementById("guesses-remain").textContent = guesses.toString();
                 guessedLetters.push(" " + userInput);
@@ -89,6 +103,8 @@ if (guesses > 0){
     }
 }
 else {
+
+    //move to lose sequence
     alert("You are out of time and options. You must eject from the aircraft.");
 }
 document.getElementById("letters-guessed").textContent = guessedLetters;
