@@ -3,41 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <title>Good Array!</title>
-   
-  </head>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|VT323" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
   <body>
-<header>
-    <h1>Hung Bomb</h1>
-    <h2>A Hangman Game for Fighter Pilots</h2>
-</header>
-<!--div with image or graphic-->
-<!--div with instructions for game-->
-<!--div with score box containing number of guesses left, number of words guessed correctly-->
-<!--div with blanked out word-->
-<button id= "new-game" onclick="generateRandomWord()">click me for a new word</button>
-<h1>Guess the word below</h1>
-<p id="word-Display"></p>
-<br>
-<p>Here are the letters you already guessed:</p>
-<p id="letters-guessed"></p>
-<br>
-<p>You have <span id="guesses-remain">#</span> guesses remaining.</p>
-<!--div with guessed letters-->
 
+<div id="container">
+     <section id="col1">
+        <div id="title">
+                <img src="assets/images/jet.png" alt="shadow of fighter jet">
+                <h1>Hung Bomb</h1>
+                <h2>A Hangman Game for Fighter Pilots</h2>
+                
+                
+        </div>
+        <div id="stats">
+                <p>Guesses Left: <span id="guesses-remain"></span> </p>
+                <p>Mission Wins: <span id="miss-acc">0</span> Mission Fails: <span id="miss-fail">0</span></p>
+                <p>Letters already guessed:</p>
+                <p id="letters-guessed"></p>
+        </div>
+    </section>
+    <div id="col2">
+            <div id="display-messages">
+       
+            </div>
+            <div class="full-width">
+                
+                <h2 id ="target-head"> Guess the word below</h2>
+                <button id= "new-game" onclick="generateRandomWord()">New Word</button>
+            </div>
+            <div class="full-width">
+                    <p id="word-Display"></p>
+            </div>
+            <div class="full-width">
+                    <img src="assets/images/f16cockpit.png" alt="rendering of F16 cockpit" class="full-width" id="cockpit">
+            </div>
+       
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <script src="assets/javascript/testfile.js"></script>
 

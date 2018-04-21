@@ -1,0 +1,151 @@
+
+body {
+
+    background-image: radial-gradient( #6991af, navy);
+    box-sizing: border-box;
+    font-size: 16px;
+
+}
+
+button {
+    width: 20%;
+    margin: 2% auto;
+    display: block;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+/* ----------Text Styles ----------------  */
+
+h1 {
+    font-family: 'Bungee Inline', Arial, Helvetica, sans-serif;
+    font-size:4em;
+    margin: 0;
+    color:white;
+}
+
+h2{
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+    margin:0;
+    color:white;
+
+}
+
+h3 {
+    font-family: 'VT323', monospace;
+}
+
+p {
+    font-family: 'VT323', monospace;
+}
+
+#target-head {
+color: white;
+text-align: center;
+}
+
+/* -----------Layout Styles ----------------- */
+
+#container {
+    width: 94%;
+    margin: 4% auto;
+    padding: 0;
+    border: 2px solid black;
+    max-height:750px;
+    overflow:hidden;
+}
+
+#col1 {
+    width: 50%;
+    float: left;
+    padding: 0;
+    margin:2% 0;
+    position:relative;
+    display:inline-block;
+
+}
+
+
+#col2 {
+    width: 50%;
+    min-height:750px;
+    float: left;
+    padding: 2% 0 0 0;
+    margin:0;
+    background-color: black;
+    position:relative;
+    display:inline-block;
+}
+
+#title{
+    text-align: center;
+    width: 90%;
+    padding-left:-10%;
+    margin: 0 8% 20% 2%;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari 3-8 */
+    transform: rotate(-20deg);
+    display:block;
+
+}
+
+#title img {
+    width: 80%;
+    height: auto;
+    margin: -1% auto;
+}
+
+#game-view{
+
+}
+
+#display-messages {
+    min-height: 75px;
+    text-align: center;
+    color:white;
+    padding: 10% 0;
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+}
+
+#stats {
+    background-image: url(../images/bomb.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width:96%;
+    margin:2% auto;
+    min-height: 165px;
+    text-align: center;
+    color:white;
+    padding: 10% 0;
+    line-height:13px;
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+    display:block;
+
+}
+#stats span {
+    color: red;
+}
+
+#letters-guessed {
+    color: red;
+}
+
+#word-Display {
+    color: red;
+    font-size: 35px;
+    min-height: 50px;
+    text-align: center;
+}
+
+.full-width {
+    width:100%;
+}
+.cockpit {
+    position:relative;
+    bottom: 0;
+}

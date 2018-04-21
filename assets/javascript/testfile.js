@@ -1,11 +1,14 @@
-var guesses = 0;
+    var guesses = 0;
     var guessedLetters = [];
     var randomWord = "";
     var roundsPlayed = 0;
     var blankedWord = [];
     var globalGuesses = 0;
+    var missionAcc = 0;
+    var missionFail = 0;
 
-    alert("Are you ready to take on this mission? Press the button for your first word.");
+    document.getElementById("display-messages").textContent =
+    "Are you ready to take on this mission? Press the button for your first word.";
 
     generateRandomWord();
     eachRound();
@@ -23,6 +26,7 @@ var guesses = 0;
         };
         var wordBlanksVisible = blankedWord.join("");
         document.getElementById("word-Display").textContent = wordBlanksVisible;
+        document.getElementById("letters-guessed").textContent = "";
         guesses = randomWord.length + 5; //makes the number of guesses proportionate to word length
         document.getElementById("guesses-remain").textContent = guesses.toString();
         roundsPlayed++;
@@ -38,8 +42,10 @@ var guesses = 0;
         
             console.log(guessedLetters);
         if (guesses > 0) { 
+            document.getElementById("display-messages").textContent = "Great job! Keep flying!";
             if (guessLetInd > -1){
-                alert("You already used this letter. Choose a different letter.");
+                document.getElementById("display-messages").textContent = 
+                "Don't waste guesses on the same letter!";
             } 
             else{
                 if (validKeys.includes(userInput)){
@@ -51,12 +57,14 @@ var guesses = 0;
                                 blankedWord[i] = userInput;
                                 wordBlanksVisible = blankedWord.join("");
                                 document.getElementById("word-Display").textContent = wordBlanksVisible;
-                               
+                                document.getElementById("display-messages").textContent = "Great job! Keep flying!";
                                 console.log(wordBlanksVisible);
                             }
                         }
                      
                         if (document.getElementById("word-Display").textContent === randomWord){
+                            document.getElementById("display-messages").textContent = "Woohoo! You hit your mark! Play again!";                        
+
                             for (i=0 ; i < randomWord.length ; i++){
                                 if(randomWord[i] === userInput){
                                     blankedWord[i] = userInput;
@@ -65,9 +73,9 @@ var guesses = 0;
                                     console.log(wordBlanksVisible);
                                 }
                             }
-                            alert("You win!");                          
                             newWordRound();
-                            
+                            missionAcc++;
+                            document.getElementById("miss-acc").textContent = missionAcc;
                         }
                     }
             
@@ -89,26 +97,32 @@ var guesses = 0;
             }
         else {
             loseSequence();
+            missionFail++;
+            document.getElementById("miss-fail").textContent = missionFail;
 
         }
         document.getElementById("letters-guessed").textContent = guessedLetters;
 
         }
+
     };
 
     function loseSequence(){
-        alert("You are out of time and options. You must eject from the aircraft.");                           
+        guessedLetters = [];
+        document.getElementById("letters-guessed").textContent = guessedLetters;
+        document.getElementById("display-messages").textContent =                         
+        "You are out of time and options. You must eject from the aircraft. Try another word.";                           
         newWordRound();
 
     };
 
     function newWordRound(){
         guesses = 0;
-        guessedLetters = [];
         blankedWord = [];                            
         randomWord = "";
         generateRandomWord();
         eachRound();
         console.log(randomWord);
+        
     };
 
