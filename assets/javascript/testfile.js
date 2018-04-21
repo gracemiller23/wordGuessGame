@@ -64,6 +64,7 @@
                      
                         if (document.getElementById("word-Display").textContent === randomWord){
                             document.getElementById("display-messages").textContent = "Woohoo! You hit your mark! Play again!";                        
+                            guessedLetters = [];
 
                             for (i=0 ; i < randomWord.length ; i++){
                                 if(randomWord[i] === userInput){
@@ -73,6 +74,7 @@
                                     console.log(wordBlanksVisible);
                                 }
                             }
+                            
                             newWordRound();
                             missionAcc++;
                             document.getElementById("miss-acc").textContent = missionAcc;
@@ -93,7 +95,7 @@
                     alert("Choose only letter keys.");
                 }
             }
-            
+            document.getElementById("letters-guessed").textContent = guessedLetters;
             }
         else {
             loseSequence();
@@ -101,7 +103,6 @@
             document.getElementById("miss-fail").textContent = missionFail;
 
         }
-        document.getElementById("letters-guessed").textContent = guessedLetters;
 
         }
 
